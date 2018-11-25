@@ -1,7 +1,6 @@
-/node_modules/*
-*/build/
-*/out/
-*/static/
-*/bin/
-
+node_modules/
+build/
+out/
+static/
+bin/
 *.class
