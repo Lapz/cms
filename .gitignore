@@ -1,5 +1,7 @@
 /node_modules/*
-/build/
-/out/
-/static/
-/bin/
+*/build/
+*/out/
+*/static/
+*/bin/
+
+*.class

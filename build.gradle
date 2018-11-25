@@ -8,6 +8,13 @@ buildscript {
     }
 }
 
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+}
+
 
 
 apply plugin: 'java'
@@ -32,12 +39,12 @@ repositories {
 
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web")
-    compile("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation('org.springframework.boot:spring-boot-starter-data-rest')
-    implementation('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile("mysql:mysql-connector-java")
     compileOnly("org.projectlombok:lombok")
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation('org.springframework.boot:spring-boot-starter-data-rest')
+    implementation('org.springframework.boot:spring-boot-starter-thymeleaf')
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

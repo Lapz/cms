@@ -2,8 +2,8 @@ import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
-import Page from './components/Page.jsx';
 import Client from './components/Client.jsx';
+import PostList from "./components/PostList.jsx";
 
 axios.defaults.baseURL = "http://localhost:8080/";
 
@@ -16,23 +16,33 @@ class App extends  Component {
     }
 
     componentDidMount() {
-        axios.get("api/posts").then((posts) => {
-            console.log(posts)
+        axios.get("api/posts").then((response) => {
+            console.log(response.data);
+            this.setState({
+                posts:response.data._embedded.posts
+            })
         }).catch((err) =>{
             console.log(err)
         })
+
     }
 
     render() {
         return(
-            <Client>
-               <Switch>
-                   <Route component={Page} path="post/post_id"/>
-               </Switch>
-            </Client>
+            <div>
+                <Client>
+                    <PostList  posts={this.state.posts}/>
+                </Client>
+
+            </div>
+
         )
     }
 }
+
+// {/*<Client>*/}
+// {/**/}
+// </Client>
 
 
 ReactDOM.render(<Router>
