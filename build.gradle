@@ -1,0 +1,63 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE")
+    }
+}
+
+
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+
+
+group 'com.lapz'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation('org.springframework.boot:spring-boot-starter-data-rest')
+    implementation('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile("mysql:mysql-connector-java")
+    compileOnly("org.projectlombok:lombok")
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+task webpack(type:Exec) {
+    inputs.file("yarn.lock")
+    inputs.dir("$projectDir/src/main/js")
+
+    outputs.dir("$projectDir/static/built")
+
+    commandLine "$projectDir/node_modules/.bin/webpack" , "src/main/js/app.js"
+}
+
+bootJar {
+    baseName = 'backend'
+    version =  '0.1.0'
+}
