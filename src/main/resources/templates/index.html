@@ -13,15 +13,37 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
 
         <link rel="stylesheet" href="/css/bulma.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
     </head>
-
     <body>
-        <noscript>
-            You need to enable JavaScript to run this app.
-        </noscript>
-        <div id="root">
+       <div th:replace="./fragments/navbar :: navbar">
+       </div>
+
+        <div class="container">
+            <div class="columns">
+                <div class="column is-half">
+
+                    <section class="section" th:each="post: ${posts}">
+                        <div class="card">
+                            <header class="card-header">
+                                <a href="post.html" th:href="@{'/posts/'+${post.id} }">
+                                    <p class="card-header-title" th:text="${post.title}">
+                                    </p>
+                                </a>
+                            </header>
+                            <div class="card-content">
+                                <div class="content" th:utext="${post.body}">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
         </div>
-        <script src="built/bundle.js" async></script>
+
+       <div th:replace="./fragments/footer :: footer"></div>
+
     </body>
 </html>

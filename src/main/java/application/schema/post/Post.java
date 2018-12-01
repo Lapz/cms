@@ -1,11 +1,12 @@
 package application.schema.post;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 import lombok.Data;
+
+import java.util.Calendar;
+import java.util.Date;
 
 @Data
 @Entity
@@ -15,14 +16,22 @@ public class Post {
     private Integer id;
 
     public String title;
-    private String author;
+    public String author;
     public String body;
+    @Column(name="created_at")
+    public Date createdAt;
+
 
     private Post() {}
 
     public Post(String title,String author,String body) {
+        this.createdAt = new Date();
         this.title = title;
         this.author = author;
         this.body = body;
+        this.createdAt = new Date();
+
     }
+
+
 }

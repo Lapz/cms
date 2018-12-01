@@ -1,4 +1,4 @@
-package application.schema.post;
+package application.routes;
 
 public class PostNotFoundException extends RuntimeException {
     PostNotFoundException(Integer id) {
