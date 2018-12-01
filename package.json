@@ -11,14 +11,16 @@
     "react-router-dom": "^4.3.1"
   },
   "scripts": {
-    "watch": "webpack --watch -d ./src/main/js/app.js"
+    "watch": "webpack --watch -d ./src/main/js/index.js"
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.2",
+    "react-hot-loader": "^4.3.12",
     "webpack": "^4.26.0",
-    "webpack-cli": "^3.1.0"
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.10"
   }
 }

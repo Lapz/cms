@@ -12,13 +12,10 @@ export class NavBar extends Component {
 
     render() {
         return (
-            <nav className="nav">
-
-
-                <div className="nav-right nav-menu" >
+            <nav className="navbar is-info">
+                <div className="navbar-right navbar-menu" >
                     {this.props.children}
                 </div>
-
             </nav>
         )
     }

@@ -29,10 +29,7 @@ class Page extends Component {
         return (
             <Page>
                 <Title title={this.state.title} align="has-text-centered"/>
-
                 <Content  html={this.state.content}/>
-
-
             </Page>
 
         )

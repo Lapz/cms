@@ -61,7 +61,7 @@ task webpack(type:Exec) {
 
     outputs.dir("$projectDir/static/built")
 
-    commandLine "$projectDir/node_modules/.bin/webpack" , "src/main/js/app.js"
+    commandLine "$projectDir/node_modules/.bin/webpack" , "src/main/js/index.js"
 }
 
 bootJar {

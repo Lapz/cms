@@ -4,10 +4,10 @@ import axios from 'axios';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import Client from './components/Client.jsx';
 import PostList from "./components/PostList.jsx";
+import { hot } from 'react-hot-loader'
 
-axios.defaults.baseURL = "http://localhost:8080/";
 
-class App extends  Component {
+class Index extends  Component {
     constructor(props)  {
         super(props);
         this.state = {
@@ -40,11 +40,9 @@ class App extends  Component {
     }
 }
 
-// {/*<Client>*/}
-// {/**/}
-// </Client>
-
 
 ReactDOM.render(<Router>
-    <App/>
+    <Index/>
 </Router>,document.getElementById("root"))
+
+export default hot(module)(Index)

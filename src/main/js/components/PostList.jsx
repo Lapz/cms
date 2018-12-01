@@ -12,16 +12,21 @@ class PostList extends Component{
     render() {
 
         const posts = this.props.posts.map((post,index) => {
-            return (<div className="box" key ={index}>
-                <h1>{post.title}</h1>
-                <h3>{post.author}</h3>
-            </div>);
+            return (<li key ={index}>
+                        <div className="card">
+                            <h1>{post.title}</h1>
+                            <h3>{post.author}</h3>
+                        </div>
+                    </li>);
         });
+
         return(
            <div>
+               <ul>
                    {
-                      posts
+                       posts
                    }
+               </ul>
            </div>
         )
     }

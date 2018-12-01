@@ -8,16 +8,19 @@ class Client extends Component {
         return (
             <div>
                 <NavBar>
-                    {/*<NavBarItem linkTo="/about" navText="About Page"/>*/}
-                    <NavBarItem linkTo="post/1" navText="Homepage"/>
-                    {/*<NavBarItem linkTo="/contact" navText="Contact"/>*/}
-                    {/*<NavBarItem linkTo="admin/" navText="Login"/>*/}
+                    <NavBarItem linkTo="/" navText="Homepage"/>
+                    <NavBarItem linkTo="/about" navText="About Page"/>
+                    <NavBarItem linkTo="/contact" navText="Contact"/>
+                    <NavBarItem linkTo="admin/" navText="Login"/>
                 </NavBar>
-                {this.props.children}
 
-
-
-
+                <div className="container">
+                    <div className="columns">
+                        <div className="column is-half">
+                                {this.props.children}
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }
